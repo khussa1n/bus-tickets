@@ -118,7 +118,7 @@ async function confirmBooking() {
     alert('Брондау сәтті өтті!');
     router.push('/tickets');
     closeModal();
-  } catch (err) {
+  } catch (err: any) {
     alert(err.message);
   }
 }

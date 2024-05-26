@@ -71,7 +71,7 @@ const handleSubmit = async () => {
               type="text"
               id="fullName"
               v-model="fullName"
-              class="w-full px-3 py-2 bg-white text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              class="w-full px-3 py-2 text-white bg-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Толық аты жөніңіз"
               required
               :disabled="isLoading"
@@ -83,7 +83,7 @@ const handleSubmit = async () => {
               type="email"
               id="email"
               v-model="email"
-              class="w-full px-3 py-2 bg-white text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              class="w-full px-3 py-2 text-white bg-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Email"
               required
               :disabled="isLoading"
@@ -95,7 +95,7 @@ const handleSubmit = async () => {
               type="password"
               id="password"
               v-model="password"
-              class="w-full px-3 py-2 bg-white text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              class="w-full px-3 py-2 text-white bg-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Құпия сөз"
               required
               :disabled="isLoading"
@@ -109,7 +109,7 @@ const handleSubmit = async () => {
               type="password"
               id="confirm-password"
               v-model="confirmPassword"
-              class="w-full px-3 py-2 bg-white text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              class="w-full px-3 py-2 text-white bg-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Құпия сөзді растаңыз"
               required
               :disabled="isLoading"

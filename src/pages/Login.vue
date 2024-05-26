@@ -34,6 +34,7 @@ const handleSubmit = async () => {
       // Save token to cookies
       Cookies.set('token', data.token, { expires: remember.value ? 7 : 1 });
       Cookies.set('userId', data.data.id, { expires: remember.value ? 7 : 1 });
+      Cookies.set('userName', data.data.fullName, { expires: remember.value ? 7 : 1 });
 
       // Redirect to the homepage after successful login
       window.location.href = '/';
@@ -70,7 +71,7 @@ const handleSubmit = async () => {
               id="email"
               v-model="email"
               :disabled="isLoading"
-              class="w-full px-3 py-2 bg-white text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              class="w-full px-3 py-2 text-white bg-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Email"
               required
             />
@@ -81,7 +82,7 @@ const handleSubmit = async () => {
               id="password"
               v-model="password"
               :disabled="isLoading"
-              class="w-full px-3 py-2 bg-white text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+              class="w-full px-3 py-2 text-white bg-zinc-700 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
               placeholder="Құпия сөз"
               required
             />

@@ -4,12 +4,19 @@ import { useRouter } from 'vue-router';
 import Cookies from 'js-cookie';
 
 const isAuthenticated = ref(false);
+const isOpen = ref(false);
+
+const userName = Cookies.get('userName');
 
 const router = useRouter();
 
 const checkAuth = () => {
   const token = Cookies.get('token');
   isAuthenticated.value = !!token;
+};
+
+const handleOpen = () => {
+  isOpen.value = !isOpen.value;
 };
 
 onMounted(() => {
@@ -19,6 +26,7 @@ onMounted(() => {
 const handleLogout = () => {
   Cookies.remove('token');
   isAuthenticated.value = false;
+  isOpen.value = false;
   router.push('/login');
 };
 </script>
@@ -48,9 +56,21 @@ const handleLogout = () => {
         <router-link v-if="!isAuthenticated" to="/join" class="text-gray-300 hover:text-white">
           Тіркелу
         </router-link>
-        <button v-if="isAuthenticated" @click="handleLogout" class="text-gray-300 hover:text-white">
-          Шығу
-        </button>
+
+        <div class="relative">
+          <span
+            v-if="isAuthenticated"
+            @click="handleOpen"
+            class="text-gray-300 hover:text-white cursor-pointer"
+            >{{ userName }}</span
+          >
+          <div
+            v-if="isOpen"
+            class="absolute py-2 px-3 bg-gray-900 bg-opacity-65 top-8 right-0 rounded"
+          >
+            <button @click="handleLogout" class="text-gray-300 hover:text-white">Шығу</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="absolute inset-0 bg-gradient-to-b from-[#2c2c2c] to-transparent"></div>
