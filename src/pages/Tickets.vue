@@ -68,7 +68,7 @@ async function cancelBooking(ticketId: number) {
 
     alert('Брондаудан бас тарту сәтті орындалды');
     tickets.value = tickets.value.filter((ticket) => ticket.id !== ticketId);
-  } catch (err) {
+  } catch (err: any) {
     alert(err.message);
   }
 }

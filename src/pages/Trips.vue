@@ -70,9 +70,10 @@ function changePage(page: number) {
 }
 
 // Change limit function
-function changeLimit(newLimit: number) {
-  limit.value = newLimit;
-  currentPage.value = 1; // Reset to first page
+function changeLimit(event: Event) {
+  const target = event.target as HTMLInputElement;
+  limit.value = target.value ? parseInt(target.value) : 10;
+  currentPage.value = 1; // Reset to the first page
 }
 
 // Open modal function
@@ -140,7 +141,7 @@ watch([currentPage, limit, from, to, date], fetchData);
         <select
           id="limit"
           v-model="limit"
-          @change="changeLimit(Number($event.target.value))"
+          @change="changeLimit"
           class="bg-gray-700 text-white p-2 rounded"
         >
           <option value="5">5</option>
@@ -223,7 +224,10 @@ watch([currentPage, limit, from, to, date], fetchData);
       <div class="bg-gray-800 text-white p-6 rounded-lg shadow-lg w-full max-w-md">
         <h3 class="text-xl font-bold mb-4">Жаңа тапсырыс</h3>
         <p><strong>Бағыт:</strong> {{ selectedTrip?.from }} ➔ {{ selectedTrip?.to }}</p>
-        <p><strong>Шығу:</strong> {{ new Date(selectedTrip?.departure).toLocaleString() }}</p>
+        <p>
+          <strong>Шығу:</strong>
+          {{ selectedTrip && new Date(selectedTrip?.departure).toLocaleString() }}
+        </p>
         <p><strong>Автобус:</strong> {{ selectedTrip?.bus }}</p>
         <div class="mt-4">
           <label for="seats" class="block mb-2">Орындар</label>
