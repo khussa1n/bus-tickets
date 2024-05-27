@@ -96,6 +96,12 @@ async function confirmBooking() {
   try {
     const token = Cookies.get('token');
     const userId = Cookies.get('userId');
+
+    if (!token) {
+      router.push('/login');
+      return;
+    }
+
     const response = await fetch(`${API}/tickets`, {
       method: 'POST',
       headers: {

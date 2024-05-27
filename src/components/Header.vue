@@ -42,12 +42,11 @@ const handleLogout = () => {
           />
           <span> Автобус рейстерін брондау </span>
         </router-link>
-        <router-link v-if="isAuthenticated" to="/trips" class="text-gray-300 hover:text-white">
-          Рейстер
-        </router-link>
+        <router-link to="/trips" class="text-gray-300 hover:text-white"> Рейстер </router-link>
         <router-link v-if="isAuthenticated" to="/tickets" class="text-gray-300 hover:text-white">
           Билеттер
         </router-link>
+        <router-link to="/about" class="text-gray-300 hover:text-white"> Біз жайында </router-link>
       </div>
       <div class="flex items-center gap-3">
         <router-link v-if="!isAuthenticated" to="/login" class="text-gray-300 hover:text-white">

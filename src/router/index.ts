@@ -4,6 +4,7 @@ import Trips from '@/pages/Trips.vue';
 import Tickets from '@/pages/Tickets.vue';
 import Login from '@/pages/Login.vue';
 import Join from '@/pages/Join.vue';
+import About from '@/pages/About.vue';
 import Cookies from 'js-cookie';
 
 const routes = [
@@ -11,13 +12,16 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
-    meta: { requiresAuth: true }, // Add meta field to require authentication
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: About,
   },
   {
     path: '/trips',
     name: 'trips',
     component: Trips,
-    meta: { requiresAuth: true }, // Add meta field to require authentication
   },
   {
     path: '/tickets',
