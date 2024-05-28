@@ -158,8 +158,8 @@ watch([currentPage, limit, from, to, date], fetchData);
     </div>
 
     <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
-      <div v-if="loading">Loading...</div>
-      <div v-if="error">{{ error }}</div>
+      <div v-if="loading" class="text-center text-xl">Жүктеу...</div>
+      <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
       <div v-else v-auto-animate>
         <table class="w-full text-left">
           <thead class="bg-gray-700">

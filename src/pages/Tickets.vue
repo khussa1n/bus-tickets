@@ -77,7 +77,7 @@ async function cancelBooking(ticketId: number) {
 <template>
   <div class="text-white p-6 max-w-6xl mx-auto bg-gray-900 rounded-lg shadow-lg mt-10">
     <h2 class="text-3xl font-bold mb-10 text-center border-b-2 pb-4">Брондау мәліметтері</h2>
-    <div v-if="loading" class="text-center text-xl">Загрузка...</div>
+    <div v-if="loading" class="text-center text-xl">Жүктеу...</div>
     <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
     <div v-else class="grid md:grid-cols-2 gap-10" v-auto-animate>
       <div v-for="ticket in tickets" :key="ticket.id" class="bg-gray-800 p-6 rounded-lg shadow-md">
