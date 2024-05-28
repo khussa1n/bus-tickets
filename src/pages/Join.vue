@@ -2,8 +2,9 @@
 import { API } from '@/lib/headers';
 import road from '../assets/road.png';
 
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import Cookies from 'js-cookie';
 
 const fullName = ref('');
 const email = ref('');
@@ -44,11 +45,19 @@ const handleSubmit = async () => {
     }
   } catch (error) {
     console.error('An error occurred:', error);
-    alert('An error occurred during registration. Please try again later.');
+    alert('Тіркелу барысында қате пайда болды. Кейінірек қайталап көріңіз.');
   } finally {
     isLoading.value = false; // Stop loading
   }
 };
+
+onMounted(() => {
+  const token = Cookies.get('token');
+
+  if (token !== undefined) {
+    router.push('/');
+  }
+});
 </script>
 
 <template>
@@ -124,7 +133,7 @@ const handleSubmit = async () => {
               :disabled="isLoading"
               class="w-fit px-16 py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             >
-              <span v-if="isLoading">loading...</span>
+              <span v-if="isLoading">Загрузка...</span>
               <span v-else>Тіркелу</span>
             </button>
           </div>
@@ -138,3 +147,14 @@ const handleSubmit = async () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+</style>

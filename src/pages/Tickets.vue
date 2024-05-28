@@ -75,31 +75,51 @@ async function cancelBooking(ticketId: number) {
 </script>
 
 <template>
-  <div class="text-white p-4 max-w-6xl min-w-md mx-auto bg-gray-800 rounded-lg shadow-lg">
-    <h2 class="text-2xl font-bold mb-10 text-center">Брондау мәліметтері</h2>
-    <div v-if="loading">Loading...</div>
-    <div v-else-if="error">{{ error }}</div>
-    <div v-else class="grid grid-cols-2 gap-10">
-      <div v-for="ticket in tickets" :key="ticket.id" class="mb-4">
-        <div class="mb-2"><strong>Жүру:</strong> {{ ticket.trip.from }} ➔ {{ ticket.trip.to }}</div>
-        <div class="mb-2"><strong>Шығу:</strong> {{ formatDate(ticket.trip.departure) }}</div>
-        <div class="mb-2"><strong>Келу:</strong> {{ formatDate(ticket.trip.arrival) }}</div>
-        <div class="mb-2"><strong>Орындар:</strong> {{ ticket.seats }}</div>
-        <div class="mb-2"><strong>Жасалған:</strong> {{ formatDate(ticket.trip.departure) }}</div>
-        <div class="mb-2"><strong>Күй:</strong> {{ ticket.trip.status }}</div>
-        <div class="mb-2"><strong>Бағасы:</strong> {{ ticket.trip.price }} ₸</div>
-        <div class="mt-4 w-full flex justify-center">
+  <div class="text-white p-6 max-w-6xl mx-auto bg-gray-900 rounded-lg shadow-lg mt-10">
+    <h2 class="text-3xl font-bold mb-10 text-center border-b-2 pb-4">Брондау мәліметтері</h2>
+    <div v-if="loading" class="text-center text-xl">Загрузка...</div>
+    <div v-else-if="error" class="text-center text-red-500">{{ error }}</div>
+    <div v-else class="grid md:grid-cols-2 gap-10" v-auto-animate>
+      <div v-for="ticket in tickets" :key="ticket.id" class="bg-gray-800 p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+          <strong class="block text-lg">Жүру:</strong>
+          <span>{{ ticket.trip.from }} ➔ {{ ticket.trip.to }}</span>
+        </div>
+        <div class="mb-4">
+          <strong class="block text-lg">Шығу:</strong>
+          <span>{{ formatDate(ticket.trip.departure) }}</span>
+        </div>
+        <div class="mb-4">
+          <strong class="block text-lg">Келу:</strong>
+          <span>{{ formatDate(ticket.trip.arrival) }}</span>
+        </div>
+        <div class="mb-4">
+          <strong class="block text-lg">Орындар:</strong>
+          <span>{{ ticket.seats }}</span>
+        </div>
+        <div class="mb-4">
+          <strong class="block text-lg">Жасалған:</strong>
+          <span>{{ formatDate(ticket.trip.departure) }}</span>
+        </div>
+        <div class="mb-4">
+          <strong class="block text-lg">Күй:</strong>
+          <span>{{ ticket.trip.status }}</span>
+        </div>
+        <div class="mb-4">
+          <strong class="block text-lg">Бағасы:</strong>
+          <span>{{ ticket.trip.price }} ₸</span>
+        </div>
+        <div class="mt-6 w-full flex justify-center">
           <button
             @click="cancelBooking(ticket.id)"
-            class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 mt-4 rounded"
+            class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105"
           >
             Брондаудан бас тарту
           </button>
         </div>
-        <hr class="my-4 border-gray-600" />
       </div>
     </div>
-    <p class="mt-4 text-gray-400 text-center">
+    <p class="mt-8 text-gray-400 text-center">
       Сіз брондаудан кетуге екі сағат қалғанға дейін бас тарта аласыз.
     </p>
   </div>

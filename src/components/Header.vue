@@ -25,6 +25,7 @@ onMounted(() => {
 
 const handleLogout = () => {
   Cookies.remove('token');
+  Cookies.remove('userName');
   isAuthenticated.value = false;
   isOpen.value = false;
   router.push('/login');

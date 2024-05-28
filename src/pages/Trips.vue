@@ -142,7 +142,7 @@ watch([currentPage, limit, from, to, date], fetchData);
     <h2 class="text-2xl font-bold mb-7">Автобус рейстерін іздеңіз</h2>
     <div class="mb-4 w-full flex justify-between items-center">
       <p>Барлығы {{ totalItems }}</p>
-      <div class="">
+      <div>
         <label for="limit" class="mr-2">Жолдар саны:</label>
         <select
           id="limit"
@@ -159,8 +159,8 @@ watch([currentPage, limit, from, to, date], fetchData);
 
     <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
       <div v-if="loading">Loading...</div>
-      <div v-else-if="error">{{ error }}</div>
-      <div v-else>
+      <div v-if="error">{{ error }}</div>
+      <div v-else v-auto-animate>
         <table class="w-full text-left">
           <thead class="bg-gray-700">
             <tr>
