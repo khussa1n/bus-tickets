@@ -4,7 +4,7 @@
 
 ## Қолданылған құралдар:
 
-- Next.js
+- Vue.js
 - TypeScript
 - Tailwind CSS
 
