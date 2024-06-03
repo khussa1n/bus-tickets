@@ -13,17 +13,17 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #888;
+  background: #444343;
   border-radius: 5px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #444343;
+  background: #666565;
   border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #868686;
 }

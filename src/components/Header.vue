@@ -41,13 +41,14 @@ const handleLogout = () => {
             class="w-4"
             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAuklEQVR4nO2RMQ7CMAxFM7QTZYerILgGdwFWuAgD3AZ6h44gdWCB6aFIbqUS1UmbbPRtUb79YseYiaEAGbAFzkAJPIEal1ruSsnamszXfAncGc8NWGiCK/FcNIEdOZaHJmhYBX5ZC7Buik0f3oCHSZBuRfbD/O26AJshgijMXwh2wAzYB/RzsiGCQs7zAIGT1QSVZOxrCuAQIPjNVprgRDxHTZAnEOS9ApF8JPhWg2NrZE0vddQENcn4ApCn0IhRHZwOAAAAAElFTkSuQmCC"
           />
-          <span> Автобус рейстерін брондау </span>
+          <span>Автобус рейстерін брондау</span>
         </router-link>
-        <router-link to="/trips" class="text-gray-300 hover:text-white"> Рейстер </router-link>
+        <router-link to="/trips" class="text-gray-300 hover:text-white">Рейстер</router-link>
         <router-link v-if="isAuthenticated" to="/tickets" class="text-gray-300 hover:text-white">
           Билеттер
         </router-link>
-        <router-link to="/about" class="text-gray-300 hover:text-white"> Біз жайында </router-link>
+        <router-link to="/about" class="text-gray-300 hover:text-white">Біз жайында</router-link>
+        <router-link to="/contact" class="text-gray-300 hover:text-white">Байланыс</router-link>
       </div>
       <div class="flex items-center gap-3">
         <router-link v-if="!isAuthenticated" to="/login" class="text-gray-300 hover:text-white">

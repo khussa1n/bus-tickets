@@ -5,6 +5,7 @@ import Tickets from '@/pages/Tickets.vue';
 import Login from '@/pages/Login.vue';
 import Join from '@/pages/Join.vue';
 import About from '@/pages/About.vue';
+import Contact from '@/pages/Contact.vue';
 import Cookies from 'js-cookie';
 
 const routes = [
@@ -17,6 +18,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: About,
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact,
   },
   {
     path: '/trips',
